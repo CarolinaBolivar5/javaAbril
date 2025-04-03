@@ -31,15 +31,36 @@ public class Main {
         double valorHora = 0;
         double cantidadHoras = 0;
         double bonificacionEmpleado = 0;
+        double valorSalarioMinimo =0;
         int auxilioTransporte = 200000;
 
         System.out.print("Ingrese su usuario: ");
         usuarioEmpleado = sc.nextLine();
         System.out.print("Ingrese su contraseña: ");
         contrasenaUsuario = sc.nextLine();
-        if(usuarioEmpleado.equals("admin") && contrasenaUsuario.equals("admin")){
+        if(usuarioEmpleado.equals("admin") && contrasenaUsuario.equals("admin")) {
             System.out.println("Ha ingresado de forma correcta");
-        } else {
+            System.out.println("Ingrese el nombre del empleado: ");
+            nombreEmpleado = sc.nextLine();
+            System.out.println("Ingrese su documento de identidad: ");
+            documentoIdentidad = sc.nextLine();
+            System.out.println("Ingrese el dia de descanso (De lunes a viernes): ");
+            diaDescanso = sc.nextLine();
+            System.out.println("Ingrese el valor de la hora: ");
+            valorHora = sc.nextDouble();
+            System.out.println("Ingrese la cantidad de horas trabajadas: ");
+            cantidadHoras = sc.nextDouble();
+            salarioBruto = valorHora * cantidadHoras;
+            System.out.println("Ingrese el valor del salario minimo: ");
+            valorSalarioMinimo = sc.nextDouble();
+            if (salarioBruto > (valorSalarioMinimo * 2)) {
+                bonificacionEmpleado = 0;
+                auxilioTransporte = 0;
+            } else {
+                bonificacionEmpleado = salarioBruto * 0.1;
+                auxilioTransporte = 200000;
+            }
+            System.out.println("El salario neto es: ");
             System.out.println("Error de credenciales");
         }
 
